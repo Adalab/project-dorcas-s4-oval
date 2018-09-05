@@ -1,5 +1,11 @@
 import React from 'react';
 import '../styles/Planning.css';
+import ChartLabel from './ChartLabel';
+import ChartCard from './ChartCard';
+import ChartUserCard from './ChartUserCard';
+import ChartUserLabel from './ChartUserLabel';
+import OptionsDynamic from './OptionsDynamic';
+import ChartDynamic from './ChartDynamic';
 
 class Planning extends React.Component {
 
@@ -11,17 +17,29 @@ class Planning extends React.Component {
 
 				<div className="container-fluid h-100">
 					<div class="row h-100">
-						<div class="col column__planning--graphic">
-							<div className="container__planning--graphic orange"></div>
-							<div className="container__planning--graphic yellow"></div>
+						<div class="col column__planning--chart">
+							<div className="container__planning--chart orange">
+								<ChartLabel />
+							</div>
+							<div className="container__planning--chart yellow">
+								<ChartUserLabel />
+							</div>
 						</div>
-					    <div class="col column__planning--graphic">
-							<div className="container__planning--graphic green"></div>
-							<div className="container__planning--graphic yellow"></div>
+					    <div class="col column__planning--chart">
+							<div className="container__planning--chart green">
+								<ChartCard />
+							</div>
+							<div className="container__planning--chart yellow">
+								<OptionsDynamic />
+							</div>
 						</div>
-					    <div class="col column__planning--graphic">
-							<div className="container__planning--graphic green"></div>
-							<div className="container__planning--graphic orange"></div>
+					    <div class="col column__planning--chart">
+							<div className="container__planning--chart green">
+								<ChartUserCard />
+							</div>
+							<div className="container__planning--chart orange">
+								<ChartDynamic />
+							</div>
 
 						</div>
 				    </div>
