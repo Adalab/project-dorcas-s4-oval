@@ -23,7 +23,6 @@ class Satisfaction extends React.Component {
           <div class="col-10 h-100 satisfation__info">
             <div className="satisfation__media-equip"></div>
             <div className="satisfation__media-personal"></div>
-
           </div>
         </div>
       </section>
