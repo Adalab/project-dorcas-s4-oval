@@ -3,3 +3,26 @@
 	width     : 100%;
 	background: pink;
 }
+.satisfation__menu {
+	background: blue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.container_date-input {
+	
+}
+.container_date {
+	display: flex;
+	flex-direction: column;
+}
+.satisfation__info {
+	background: purple;
+	display: flex;
+	padding: 0;
+}
+.satisfation__media-equip {
+	width: 100%;
+	height: 25%;
+	background: teal;
+}
