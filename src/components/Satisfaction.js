@@ -20,9 +20,22 @@ class Satisfaction extends React.Component {
               </div>
             </div>
           </div>
+
           <div class="col-10 h-100 satisfation__info">
-            <div className="satisfation__media-equip"></div>
-            <div className="satisfation__media-personal"></div>
+            <div className="satisfation__media-equip">
+              <div className="satisfaction__media-equip--data media-equip__title">title</div>
+              <div className="satisfaction__media-equip--data media-equip__initial-data">initial media</div>
+              <div className="satisfaction__media-equip--data media-equip__end-data">final media</div>
+              <div className="satisfaction__media-equip--data media-equip__job-data">job media</div>
+            </div>
+
+            <div className="satisfation__media-personal">
+              <div className="satisfaction__media-personal--data media-personal1">user 1</div>
+              <div className="satisfaction__media-personal--data media-personal2">user 2</div>
+              <div className="satisfaction__media-personal--data media-personal3">user 3</div>
+              <div className="satisfaction__media-personal--data media-personal4">user 4</div>
+            </div>
+
           </div>
         </div>
       </section>

@@ -16,9 +16,30 @@
 .satisfation__info {
   background: purple;
   display: flex;
+  flex-direction: column;
   padding: 0; }
 
 .satisfation__media-equip {
   width: 100%;
   height: 25%;
-  background: teal; }
+  background: teal;
+  display: flex; }
+
+.satisfaction__media-equip--data {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; }
+
+.satisfation__media-personal {
+  display: flex;
+  height: 100%; }
+
+.satisfaction__media-personal--data {
+  border: 1px solid black;
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
