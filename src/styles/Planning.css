@@ -1,19 +1,10 @@
 .section__planning {
   height: 55%;
-  width: 100%;
-  background: blue; }
+  width: 100%;}
+
 
 .column__planning--chart {
   padding: 0 5px; }
 
 .container__planning--chart {
   height: 50%; }
-
-.yellow {
-  background: yellow; }
-
-.green {
-  background: green; }
-
-.orange {
-  background: orange; }

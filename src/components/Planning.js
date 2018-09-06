@@ -18,26 +18,26 @@ class Planning extends React.Component {
 				<div className="container-fluid h-100">
 					<div class="row h-100">
 						<div class="col column__planning--chart">
-							<div className="container__planning--chart orange">
+							<div className="container__planning--chart">
 								<ChartLabel />
 							</div>
-							<div className="container__planning--chart yellow">
+							<div className="container__planning--chart">
 								<ChartUserLabel />
 							</div>
 						</div>
 					    <div class="col column__planning--chart">
-							<div className="container__planning--chart green">
+							<div className="container__planning--chart">
 								<ChartCard />
 							</div>
-							<div className="container__planning--chart yellow">
+							<div className="container__planning--chart">
 								<OptionsDynamic />
 							</div>
 						</div>
 					    <div class="col column__planning--chart">
-							<div className="container__planning--chart green">
+							<div className="container__planning--chart">
 								<ChartUserCard />
 							</div>
-							<div className="container__planning--chart orange">
+							<div className="container__planning--chart">
 								<ChartDynamic />
 							</div>
 

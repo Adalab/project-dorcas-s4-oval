@@ -1,10 +1,8 @@
 .section__satisfaction {
   height: 45%;
-  width: 100%;
-  background: pink; }
+  width: 100%; }
 
 .satisfation__menu {
-  background: blue;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -14,7 +12,6 @@
   flex-direction: column; }
 
 .satisfation__info {
-  background: purple;
   display: flex;
   flex-direction: column;
   padding: 0; }
@@ -22,7 +19,6 @@
 .satisfation__media-equip {
   width: 100%;
   height: 25%;
-  background: teal;
   display: flex; }
 
 .satisfaction__media-equip--data {
