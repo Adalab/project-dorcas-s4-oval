@@ -6,16 +6,19 @@ class MediaSatisfaction extends React.Component {
     return (
       <div className="satisfation__media-equip">
         <div className="satisfaction__media-equip--data media-equip__title">
-          title
+          Team Media
         </div>
         <div className="satisfaction__media-equip--data media-equip__initial-data">
-          initial media
+          Initial media
+          <span className="media_numbers red">4</span>
         </div>
         <div className="satisfaction__media-equip--data media-equip__end-data">
-          final media
+          Final media
+          <span className="media_numbers green">8</span>
         </div>
         <div className="satisfaction__media-equip--data media-equip__job-data">
-          job media
+          Job media
+          <span className="media_numbers">7</span>
         </div>
       </div>
     );
