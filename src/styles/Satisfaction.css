@@ -1,6 +1,7 @@
 .section__satisfaction {
   height: 45%;
-  width: 100%; }
+  width: 100%;
+  border-top: 1px solid rgba(63, 62, 68, 0.3); }
 
 .satisfation__menu {
   display: flex;
