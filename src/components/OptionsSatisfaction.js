@@ -7,7 +7,7 @@ class OptionsSatisfaction extends React.Component {
       <div className="col-2 h-100 satisfation__menu">
         <div className="container__date-input">
           <div className="container__date">
-            <label for="day_init">Fecha de inicio</label>
+            <label htmlFor="day_init">Fecha de inicio</label>
             <input type="date" />
           </div>
           <div className="container__date">

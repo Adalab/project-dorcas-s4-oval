@@ -1,15 +1,12 @@
 .section__satisfaction {
   height: 45%;
-  width: 100%; }
-
-.container__date-input {
-  width: 100%; }
+  width: 100%;
+  border-top: 1px solid rgba(63, 62, 68, 0.3); }
 
 .satisfation__menu {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px 10px 10px 20px; }
+  justify-content: center; }
 
 .container__date {
   display: flex;
@@ -34,8 +31,7 @@
 
 .satisfation__media-personal {
   display: flex;
-  height: 100%;
-  padding: 5px 20px; }
+  height: 100%; }
 
 .satisfaction__media-personal--data {
   border: 1px solid black;
