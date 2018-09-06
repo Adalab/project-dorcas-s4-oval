@@ -1,12 +1,12 @@
 .section__satisfaction {
   height: 45%;
-  width: 100%; }
+  width: 100%;
+  border-top: 1px solid rgba(63, 62, 68, 0.3); }
 
 .satisfation__menu {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(63, 62, 68, 0.1); }
+  justify-content: center; }
 
 .container__date {
   display: flex;
@@ -15,8 +15,7 @@
 .satisfation__info {
   display: flex;
   flex-direction: column;
-  padding: 0;
-  background: rgba(63, 62, 68, 0.1); }
+  padding: 0; }
 
 .satisfation__media-equip {
   width: 100%;
