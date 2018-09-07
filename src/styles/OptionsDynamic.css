@@ -4,6 +4,9 @@
   align-items: center;
   justify-content: space-between; }
 
+.options__filter--title {
+  font-size: 1.2rem; }
+
 .options__select-user {
   width: 200px;
   margin-bottom: 5px;

@@ -8,9 +8,9 @@ class Satisfaction extends React.Component {
   render() {
     return (
       <section className="section__satisfaction">
-        <div class="row h-100">
+        <div className="row h-100">
           <OptionsSatisfaction />
-          <div class="col-10 h-100 satisfation__info">
+          <div className="col-10 h-100 satisfation__info">
             <MediaSatisfaction />
             <ChartsSatisfaction />
           </div>

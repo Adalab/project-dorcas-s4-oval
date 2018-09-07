@@ -5,7 +5,7 @@ class OptionsDynamic extends React.Component {
   render() {
     return (
       <div className="options__container">
-        <p>OptionsDynamic</p>
+        <h2 className="options__filter--title">Custom Filter</h2>
         <select className="options__select-user" name="user">
           <option value="">User</option>
           <option value="user1">Anna Branco</option>
