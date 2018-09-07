@@ -12,6 +12,7 @@ class Header extends React.Component {
 			<div className="header__container">
 				<img src={logo} alt="" className="header__logo"/>
 			</div>
+			<h1 className="titleApp">OVAL</h1>
 		</header>
 
 		);
