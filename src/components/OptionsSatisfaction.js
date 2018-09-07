@@ -6,12 +6,12 @@ class OptionsSatisfaction extends React.Component {
     return (
       <div className="col-2 h-100 satisfation__menu">
         <div className="container__date-input">
-          <div className="container__date">
-            <label htmlFor="day_init">Fecha de inicio</label>
+          <div className="container__date date-box__init">
+            <label htmlFor="day_init">From</label>
             <input type="date" />
           </div>
-          <div className="container__date">
-            <label htmlFor="party">Fecha de fin</label>
+          <div className="container__date date-box__end">
+            <label htmlFor="day_end">To</label>
             <input type="date" />
           </div>
         </div>
