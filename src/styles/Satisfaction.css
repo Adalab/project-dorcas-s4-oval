@@ -9,8 +9,12 @@
   justify-content: center; }
 
 .container__date {
+  margin-top: 10px; }
+
+.container__date {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin-top: 20px; }
 
 .satisfation__info {
   display: flex;
