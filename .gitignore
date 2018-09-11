@@ -8,7 +8,7 @@
 
 # production
 /build
-/src/keys/keys.*
+# keys.js
 
 # misc
 .DS_Store
@@ -17,8 +17,6 @@
 .env.test.local
 .env.production.local
 .vscode
-
-keys.*
 
 npm-debug.log*
 yarn-debug.log*
