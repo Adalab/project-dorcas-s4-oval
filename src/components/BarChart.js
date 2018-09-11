@@ -2,35 +2,38 @@ import React from 'react';
 import Chart, {Series, Label, Legend, SeriesTemplate} from 'devextreme-react/ui/chart';
 
 
-const dataSource = {
-
-    datos: [
+const dataSource = [
     {
-      region: "Asia",
-      val: 4119626293
-    }, 
-    {
-      region: "Africa",
-      val: 1012956064
-    }, 
-    {
-      region: "Northern America",
-      val: 344124520
-    }, 
-    {
-      region: "Latin America and the Caribbean",
-      val: 590946440
-    }, 
-    {
-      region: "Europe",
-      val: 727082222
-    }, 
-    {
-      region: "Oceania",
-      val: 35104756
-    }
-  ]
-};
+    state: "China",
+    oil: 4.95,
+    gas: 2.85,
+    coal: 45.56
+}, {
+    state: "Russia",
+    oil: 12.94,
+    gas: 17.66,
+    coal: 4.13
+}, {
+    state: "USA",
+    oil: 8.51,
+    gas: 19.87,
+    coal: 15.84
+}, {
+    state: "Iran",
+    oil: 5.3,
+    gas: 4.39
+}, {
+    state: "Canada",
+    oil: 4.08,
+    gas: 5.4
+}, {
+    state: "Saudi Arabia",
+    oil: 12.03
+}, {
+    state: "Mexico",
+    oil: 3.86
+}
+];
 
 class BarChart extends React.Component {
 render(){
@@ -38,7 +41,7 @@ return (
     <Chart
     type={"bar"}
     palette={"Violet"}
-    dataSource={dataSource.datos}
+    dataSource={dataSource}
     title={'Label Card by User'}
   >
 
@@ -48,10 +51,21 @@ return (
       margin={10}
   ></Legend>
 
-  <SeriesTemplate
-      nameField={'region'}
+  <Series
+      valueField={'oil'}
+      name={"Oil Production"}
   >
-  </SeriesTemplate>
+  </Series>
+  <Series
+      valueField={'gas'}
+      name={"Gas Production"}
+  >
+  </Series>
+  <Series
+      valueField={'coal'}
+      name={"Coal Production"}
+  >
+  </Series>
 
   </Chart>
  );

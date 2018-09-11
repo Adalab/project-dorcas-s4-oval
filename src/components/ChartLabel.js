@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/ChartLabel.css';
-import BarChart from './BarChart';
+import Donought from './Donought';
 
 class ChartLabel extends React.Component {
 
@@ -8,7 +8,7 @@ class ChartLabel extends React.Component {
 
 		return (
 			<div className="graphic__container">
-				<BarChart />
+				<Donought />
 			</div>
 		);
 	}
