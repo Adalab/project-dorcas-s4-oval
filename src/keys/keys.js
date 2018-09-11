@@ -1,8 +1,8 @@
 export default {
 	trello:
 	{
-		key: 'your_key_here',
-		token: 'your_token_here'
+		key: 'x',
+		token: 'x'
 	},
 	googleSheets:
 	{
