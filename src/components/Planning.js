@@ -15,26 +15,38 @@ class Planning extends React.Component {
           <div className="row h-100">
             <div className="col column__planning--chart">
               <div className="container__planning--chart">
-                <ChartLabel />
+                <ChartLabel
+                  dataPlanning = {this.props.dataPlanning}
+                />
               </div>
               <div className="container__planning--chart">
-                <ChartUserLabel />
-              </div>
-            </div>
-            <div className="col column__planning--chart">
-              <div className="container__planning--chart">
-                <ChartCard />
-              </div>
-              <div className="container__planning--chart">
-                <OptionsDynamic />
+                <ChartUserLabel
+                  dataPlanning = {this.props.dataPlanning}
+                />
               </div>
             </div>
             <div className="col column__planning--chart">
               <div className="container__planning--chart">
-                <ChartUserCard />
+                <ChartCard
+                  dataPlanning = {this.props.dataPlanning}
+                />
               </div>
               <div className="container__planning--chart">
-                <ChartDynamic />
+                <OptionsDynamic
+                  dataPlanning = {this.props.dataPlanning}
+                />
+              </div>
+            </div>
+            <div className="col column__planning--chart">
+              <div className="container__planning--chart">
+                <ChartUserCard
+                  dataPlanning = {this.props.dataPlanning}
+                 />
+              </div>
+              <div className="container__planning--chart">
+                <ChartDynamic
+                  dataPlanning = {this.props.dataPlanning}
+                />
               </div>
             </div>
           </div>
