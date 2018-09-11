@@ -40,7 +40,6 @@ class App extends Component {
 		fetch(urlDataTrello)
 		.then(response => response.json())
 		.then(data => {
-
 			this.setState({
 				dataPlanning: data
 			});
