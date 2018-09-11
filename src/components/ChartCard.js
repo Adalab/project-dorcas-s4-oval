@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/ChartCard.css';
-import donut1 from '../images/donut-1.jpeg';
+import Donought from './Donought';
 
 class ChartCard extends React.Component {
 
@@ -9,7 +9,7 @@ class ChartCard extends React.Component {
 		return (
 
 			<div className="graphic__container">
-				<img src={donut1} alt="img" className="ChartCard__img"/>
+				<Donought />
 			</div>
 
 		);
