@@ -32,9 +32,11 @@ render(){
 return (
     <Chart
     dataSource={dataSource}
+    title='User Labels'
   >
 
   <Series
+     title={'User Labels'}
       valueField={'cards'}
       argumentField={'user'}
       type={'bar'}  >
