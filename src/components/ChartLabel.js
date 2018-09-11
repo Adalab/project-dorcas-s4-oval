@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/ChartLabel.css';
-import donut from '../images/donut.jpeg';
 import Donought from './Donought';
 
 class ChartLabel extends React.Component {
