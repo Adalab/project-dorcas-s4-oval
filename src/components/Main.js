@@ -9,8 +9,14 @@ class Main extends React.Component {
     return (
       <main className="main">
         <Switch>
-          <Route exact path="/" component={Planning} />
-          <Route path="/satisfaction" component={Satisfaction} />
+          <Route exact path="/" render={ () =>
+            <Planning
+              dataPlanning = {this.props.dataPlanning}
+            /> }/>
+          <Route path="/satisfaction" render={props =>
+            <Satisfaction
+              dataSatisfaction = {this.props.dataSatisfaction}
+            /> }/>
         </Switch>
       </main>
     );

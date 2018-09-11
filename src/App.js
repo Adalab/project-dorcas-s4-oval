@@ -52,7 +52,11 @@ class App extends Component {
     return (
       <div className="App">
 		<Header />
-		<Main />
+		<Main
+			dataPlanning = {this.state.dataPlanning}
+			dataSatisfaction = {this.state.dataSatisfaction}
+
+		 />
       </div>
     );
   }
