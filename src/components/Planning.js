@@ -15,7 +15,10 @@ class Planning extends React.Component {
           <div className="row h-100">
             <div className="col column__planning--chart">
               <div className="container__planning--chart">
-                <ChartCard />
+                <ChartCard
+					dataPlanning={this.props.dataPlanning}
+					dataCardsByLists={this.props.dataCardsByLists}
+				/>
               </div>
               <div className="container__planning--chart">
                 <ChartLabel />
