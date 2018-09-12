@@ -11,7 +11,7 @@ class Donought extends React.Component {
 					type={"doughnut"}
 					palette={"Soft Pastel"}
 					dataSource={this.props.dataSource}
-					title={'Number of Cards by Lists'}
+					title={this.props.title}
 				  >
 
 				  <Legend
@@ -21,7 +21,7 @@ class Donought extends React.Component {
 				  ></Legend>
 
 				  <Series
-					  argumentField={'list'}
+					  argumentField={'arg'}
 				  >
 				  </Series>
 
