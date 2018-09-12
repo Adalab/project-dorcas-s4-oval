@@ -9,7 +9,8 @@ class ChartCard extends React.Component {
 		return (
 
 			<div className="graphic__container">
-				<Donought />
+				<Donought dataSource={this.props.dataCardsByLists}
+			/>
 			</div>
 
 		);
