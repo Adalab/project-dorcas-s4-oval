@@ -1,2 +1,8 @@
 .ChartDynami__img {
-  width: 70%; }
+  width: 70%;
+  max-width: 100%; }
+
+.chart-dynamic-container {
+  background-color: lightgray;
+  height: 100%;
+  width: 100%; }
