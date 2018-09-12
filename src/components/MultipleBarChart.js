@@ -14,7 +14,7 @@ import Chart, {
     VerticalLineLabelFormat
   } from "devextreme-react/ui/chart";
 
-  const dataArray = [
+  const dataUserCard = [
     {
       user: "Aylen",
       backlog: 5,
