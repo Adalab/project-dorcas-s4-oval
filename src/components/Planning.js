@@ -16,12 +16,14 @@ class Planning extends React.Component {
             <div className="col column__planning--chart">
               <div className="container__planning--chart">
                 <ChartCard
-					dataLists={this.props.dataLists}
-					dataCardsByLists={this.props.dataCardsByLists}
-				/>
+        					dataLists={this.props.dataLists}
+        					dataCardsByLists={this.props.dataCardsByLists}
+				         />
               </div>
               <div className="container__planning--chart">
-                <ChartLabel />
+                <ChartLabel
+                  dataCardsByLabels={this.props.dataCardsByLabels}
+                 />
               </div>
             </div>
             <div className="col column__planning--chart">

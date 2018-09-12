@@ -15,6 +15,7 @@ class App extends Component {
 		this.state = {
 			usersTrello: [],
 			dataLists: [],
+			dataLabels: [],
 			dataSatisfaction: [],
 			dataCardsByLists: null,
 			dataCardsByLabels: null
@@ -25,11 +26,15 @@ class App extends Component {
 	componentDidMount() {
 		this.getUsersTrello();
 		this.getDataTrello();
+		this.getLabelsTrello();
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (prevState.dataLists !== this.state.dataLists) {
 				this.generateDataCardsByLists();
+		}
+		if (prevState.dataLabels !== this.state.dataLabels) {
+				this.generateDataCardsByLabels();
 		}
 	}
 
@@ -106,7 +111,7 @@ generateDataCardsByLabels = () => {
       <div className="App">
 		<Header />
 
-		{this.state.dataCardsByLists ?
+		{this.state.dataCardsByLists && this.state.dataCardsByLabels ?
 		<Main
 			dataLists = {this.state.dataLists}
 			dataSatisfaction = {this.state.dataSatisfaction}
