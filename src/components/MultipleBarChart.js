@@ -1,17 +1,7 @@
 import React from 'react';
 import Chart, {
-    ArgumentAxis,
-    ArgumentAxisLabel,
     CommonSeriesSettings,
-    Legend,
-    Series,
-    Label,
-    Tooltip,
-    ValueAxis,
-    ValueAxisConstantLine,
-    ValueAxisConstantLineLabel,
-    ValueAxisLabel,
-    VerticalLineLabelFormat
+    Series
   } from "devextreme-react/ui/chart";
 
   const dataUserCard = [
@@ -87,7 +77,7 @@ class MultipleBarChart extends React.Component {
 render(){
 return (
     <Chart
-    dataSource={dataArray}
+    dataSource={dataUserCard}
     title="User Cards"
   >
     <CommonSeriesSettings
