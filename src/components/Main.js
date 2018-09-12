@@ -11,8 +11,9 @@ class Main extends React.Component {
         <Switch>
           <Route exact path="/" render={ () =>
             <Planning
-              dataPlanning = {this.props.dataPlanning}
-			  dataCardsByLists={this.props.dataCardsByLists}
+              dataLists = {this.props.dataLists}
+			        dataCardsByLists={this.props.dataCardsByLists}
+              dataCardsByLabels={this.props.dataCardsByLabels}
             /> }/>
           <Route path="/satisfaction" render={props =>
             <Satisfaction
