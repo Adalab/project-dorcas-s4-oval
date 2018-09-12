@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/ChartUserCard.css';
-import bars1 from '../images/bars-1.jpeg';
+import MultipleBarChart from './MultipleBarChart';
 
 class ChartUserCard extends React.Component {
 
@@ -8,7 +8,7 @@ class ChartUserCard extends React.Component {
 
 		return (
 			<div className="graphic__container">
-					<img src={bars1} alt="img" className="ChartUserCard__img"/>
+					<MultipleBarChart/>
 			</div>
 		);
 	}

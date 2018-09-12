@@ -15,23 +15,23 @@ class Planning extends React.Component {
           <div className="row h-100">
             <div className="col column__planning--chart">
               <div className="container__planning--chart">
-                <ChartLabel />
-              </div>
-              <div className="container__planning--chart">
-                <ChartUserLabel />
-              </div>
-            </div>
-            <div className="col column__planning--chart">
-              <div className="container__planning--chart">
                 <ChartCard />
               </div>
               <div className="container__planning--chart">
-                <OptionsDynamic />
+                <ChartLabel />
               </div>
             </div>
             <div className="col column__planning--chart">
               <div className="container__planning--chart">
+                <ChartUserLabel />
+              </div>
+              <div className="container__planning--chart">
                 <ChartUserCard />
+              </div>
+            </div>
+            <div className="col column__planning--chart">
+              <div className="container__planning--chart">
+                <OptionsDynamic />
               </div>
               <div className="container__planning--chart">
                 <ChartDynamic />
