@@ -5,6 +5,9 @@ class Donought extends React.Component {
 
 	render(){
 
+
+console.log(this.props.dataSource);
+
 		return (
 
 				<PieChart
@@ -17,7 +20,7 @@ class Donought extends React.Component {
 				  <Legend
 					  horizontalAlignment={"left"}
 					  verticalAlignment={"bottom"}
-					  margin={10}
+					  margin={1}
 				  ></Legend>
 
 				  <Series
@@ -26,6 +29,7 @@ class Donought extends React.Component {
 				  </Series>
 
 				  <Label
+					  argumentField={'arg'}
 					  visible={true}
 					/>
 
