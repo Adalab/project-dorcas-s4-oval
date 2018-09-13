@@ -1,2 +1,6 @@
 .ChartLabel__img {
   width: 78%; }
+
+.graphic__container {
+  width: 100%;
+  max-height: 100%; }
