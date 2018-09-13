@@ -1,6 +1,6 @@
-import React from 'react';
-import '../styles/ChartLabel.css';
-import Donought from './Donought';
+import React from "react";
+import "../styles/ChartLabel.css";
+import Donut from "./Donut";
 
 class ChartLabel extends React.Component {
 

@@ -1,6 +1,6 @@
-import React from 'react';
-import '../styles/ChartCard.css';
-import Donought from './Donought';
+import React from "react";
+import "../styles/ChartCard.css";
+import Donut from "./Donut";
 
 class ChartCard extends React.Component {
 
