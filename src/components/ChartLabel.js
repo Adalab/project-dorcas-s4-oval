@@ -8,10 +8,13 @@ class ChartLabel extends React.Component {
 
 		return (
 			<div className="graphic__container">
-			<Donought
-				 dataSource={this.props.dataCardsByLabels}
-				 title={"Number of Cards by Labels"}
-			 />
+
+				<h4 className="chart__title">Number of Cards by Labels</h4>
+
+				<Donought
+					 dataSource={this.props.dataCardsByLabels}
+					 title={"Number of Cards by Labels"}
+			 	/>
 			</div>
 		);
 	}

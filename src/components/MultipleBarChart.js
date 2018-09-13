@@ -78,7 +78,7 @@ render(){
 return (
     <Chart
     dataSource={dataUserCard}
-    title="User Cards"
+	title={" "}
   >
     <CommonSeriesSettings
       argumentField={"user"}

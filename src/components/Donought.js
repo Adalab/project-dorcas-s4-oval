@@ -10,10 +10,6 @@ console.log(this.props.dataSource);
 
 		return (
 
-			<React.Fragment>
-
-				<h4 className="chart__title">{this.props.title}</h4>
-
 				<PieChart
 					type={"doughnut"}
 					palette={"Soft Pastel"}
@@ -36,8 +32,6 @@ console.log(this.props.dataSource);
 					/>
 
 				</PieChart>
-
-			</React.Fragment>
 
 		 );
 	 }

@@ -8,6 +8,9 @@ class ChartUserLabel extends React.Component {
 
 		return (
 			<div className="graphic__container">
+
+				<h4 className="chart__title">Cards by ListsLabels</h4>
+
 				<BarChart />
 			</div>
 		);
