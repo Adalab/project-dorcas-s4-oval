@@ -1,68 +1,100 @@
 import React from 'react';
 import Chart, {
-    ArgumentAxis,
-    ArgumentAxisLabel,
     CommonSeriesSettings,
-    Legend,
-    Series,
-    Label,
-    Tooltip,
-    ValueAxis,
-    ValueAxisConstantLine,
-    ValueAxisConstantLineLabel,
-    ValueAxisLabel,
-    VerticalLineLabelFormat
+    Series
   } from "devextreme-react/ui/chart";
-  
-  const dataArray = [
+
+  const dataUserCard = [
     {
-      state: "Illinois",
-      year1998: 423.721,
-      year2001: 476.851,
-      year2004: 528.904
+      user: "Aylen",
+      backlog: 5,
+      nexsprint: 4,
+      sprint: 5,
+      todo:5,
+      doing:8,
+      blockedortesting:2,
+      done:0,
+      dismiss:0
     },
     {
-      state: "Indiana",
-      year1998: 178.719,
-      year2001: 195.769,
-      year2004: 227.271
+      user: "Laura M",
+      backlog: 7,
+      nexsprint: 2,
+      sprint: 3,
+      todo:1,
+      doing:4,
+      blockedortesting:2,
+      done:0,
+      dismiss:0
     },
     {
-      state: "Michigan",
-      year1998: 308.845,
-      year2001: 335.793,
-      year2004: 372.576
+      user: "Laura D",
+      backlog: 1,
+      nexsprint: 9,
+      sprint: 6,
+      todo:5,
+      doing:4,
+      blockedortesting:0,
+      done:0,
+      dismiss:0
     },
     {
-      state: "Ohio",
-      year1998: 348.555,
-      year2001: 374.771,
-      year2004: 418.258
+      user: "Anna",
+      backlog: 5,
+      nexsprint: 0,
+      sprint: 5,
+      todo:8,
+      doing:7,
+      blockedortesting:2,
+      done:0,
+      dismiss:0
     },
     {
-      state: "Wisconsin",
-      year1998: 160.274,
-      year2001: 182.373,
-      year2004: 211.727
-    }
+      user: "Carlos",
+      backlog: 5,
+      nexsprint: 8,
+      sprint: 2,
+      todo:1,
+      doing:8,
+      blockedortesting:3,
+      done:0,
+      dismiss:0
+    },
+    {
+      user: "Hector",
+      backlog: 5,
+      nexsprint: 7,
+      sprint: 3,
+      todo:1,
+      doing:8,
+      blockedortesting:2,
+      done:0,
+      dismiss:0
+    },
   ];
 
 class MultipleBarChart extends React.Component {
 render(){
 return (
     <Chart
-    dataSource={dataArray}
+    dataSource={dataUserCard}
     title="User Cards"
   >
     <CommonSeriesSettings
-      argumentField={"state"}
+      argumentField={"user"}
       type={"bar"}
       hoverMode={"allArgumentPoints"}
     />
 
-    <Series valueField={"year2004"} name={"2004"} />
-    <Series valueField={"year2001"} name={"2001"} />
-    <Series valueField={"year1998"} name={"1998"} />
+    <Series valueField={"backlog"} name={"Backlog"} />
+    <Series valueField={"nexsprint"} name={"Nex Sprint"} />
+    <Series valueField={"sprint"} name={"Sprint"} />
+    <Series valueField={"todo"} name={"To do"} />
+    <Series valueField={"doing"} name={"Doing"} />
+    <Series valueField={"blockedortesting"} name={"Blocked or testing"} />
+    <Series valueField={"done"} name={"Done"} />
+    <Series valueField={"Dismiss"} name={"Dismiss"} />
+
 
   </Chart>
  );
