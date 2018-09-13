@@ -10,23 +10,25 @@ console.log(this.props.dataSource);
 
 		return (
 
+			<React.Fragment>
+
+				<h4 className="chart__title">{this.props.title}</h4>
+
 				<PieChart
 					type={"doughnut"}
 					palette={"Soft Pastel"}
 					dataSource={this.props.dataSource}
-					title={this.props.title}
 				  >
 
 				  <Legend
 					  horizontalAlignment={"left"}
 					  verticalAlignment={"bottom"}
 					  margin={1}
-				  ></Legend>
+				  />
 
 				  <Series
 					  argumentField={'arg'}
-				  >
-				  </Series>
+				  />
 
 				  <Label
 					  argumentField={'arg'}
@@ -34,6 +36,8 @@ console.log(this.props.dataSource);
 					/>
 
 				</PieChart>
+
+			</React.Fragment>
 
 		 );
 	 }
