@@ -11,7 +11,7 @@ class ChartLabel extends React.Component {
 
 				<h4 className="chart__title">Number of Cards by Labels</h4>
 
-				<Donought
+				<Donut
 					 dataSource={this.props.dataCardsByLabels}
 					 title={"Number of Cards by Labels"}
 			 	/>

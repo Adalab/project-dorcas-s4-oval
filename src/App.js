@@ -21,7 +21,7 @@ class App extends Component {
 			dataSatisfaction: [],
 			dataCardsByLists: null,
 			trelloLabels: [],
-			dataCardsByLabels: []
+			dataCardsByLabels: null
 
 		}
 	}

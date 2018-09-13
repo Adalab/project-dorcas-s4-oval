@@ -1,32 +1,40 @@
-import React from "react";
-import PieChart, { Series, Label, Legend } from "devextreme-react/ui/pie-chart";
+import React from 'react';
+import PieChart, {Series, Label, Legend} from 'devextreme-react/ui/pie-chart';
 
-class Donut extends React.Component {
-  render() {
-    console.log(this.props.dataSource);
+class Donought extends React.Component {
 
-    return (
-      <React.Fragment>
-        <h4 className="chart__title">{this.props.title}</h4>
+	render(){
 
-        <PieChart
-          type={"doughnut"}
-          palette={"Soft Pastel"}
-          dataSource={this.props.dataSource}
-        >
-          <Legend
-            horizontalAlignment={"left"}
-            verticalAlignment={"bottom"}
-            margin={1}
-          />
 
-          <Series argumentField={"arg"} />
+console.log(this.props.dataSource);
 
-          <Label argumentField={"arg"} visible={true} />
-        </PieChart>
-      </React.Fragment>
-    );
-  }
+		return (
+
+				<PieChart
+					type={"doughnut"}
+					palette={"Soft Pastel"}
+					dataSource={this.props.dataSource}
+				  >
+
+				  <Legend
+					  horizontalAlignment={"left"}
+					  verticalAlignment={"bottom"}
+					  margin={1}
+				  />
+
+				  <Series
+					  argumentField={'arg'}
+				  />
+
+				  <Label
+					  argumentField={'arg'}
+					  visible={true}
+					/>
+
+				</PieChart>
+
+		 );
+	 }
 }
 
-export default Donut;
+export default Donought;

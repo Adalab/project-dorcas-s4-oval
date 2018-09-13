@@ -12,7 +12,7 @@ class ChartCard extends React.Component {
 
 				<h4 className="chart__title">Number of Cards by Lists</h4>
 
-				<Donought
+				<Donut
 					 dataSource={this.props.dataCardsByLists}
 				 />
 			</div>
