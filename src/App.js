@@ -6,7 +6,9 @@ import Keys from './keys/keys';
 
 const urlDataTrello = `https://api.trello.com/1/boards/n70jUITJ/lists?cards=all&card_fields=id%2Cname%2CidMembers%2Clabels&filter=open&fields=id%2Cname&key=${Keys.trello.key}&token=${Keys.trello.token}`;
 const urlUsersTrello = `https://api.trello.com/1/boards/n70jUITJ/members?key=${Keys.trello.key}&token=${Keys.trello.token}`;
-const urlLabelsTrello = `https://api.trello.com/1/boards/n70jUITJ/lists?cards=all&card_fields=id%2Cname%2Clabels&card_members=true&card_member_fields=name%2Cusername&filter=open&fields=id%2Cname&key=${Keys.trello.key}&token=${Keys.trello.token}`;
+const urlLabelsTrello = `https://api.trello.com/1/boards/n70jUITJ/labels?fields=id%2Cname&key=${Keys.trello.key}&token=${Keys.trello.token}`;
+const urlLabelsAndCardsTrello = `https://api.trello.com/1/boards/n70jUITJ/cards/?fields=name,idList,idLabels&key=${Keys.trello.key}&token=${Keys.trello.token}`;
+
 
 class App extends Component {
 	constructor(props) {
@@ -18,7 +20,9 @@ class App extends Component {
 			dataLabels: [],
 			dataSatisfaction: [],
 			dataCardsByLists: null,
-			dataCardsByLabels: null
+			trelloLabels: [],
+			dataCardsByLabels: []
+
 		}
 	}
 
@@ -56,17 +60,25 @@ class App extends Component {
 			this.setState({
 				dataLists: data
 			});
-	});
-}
-getLabelsTrello = () => {
-	fetch(urlLabelsTrello)
-	.then(response => response.json())
-	.then(data => {
-		this.setState({
-			dataLabels: data
 		});
-});
-}
+	}
+	getLabelsTrello = () => {
+		fetch(urlLabelsTrello)
+		.then(response => response.json())
+		.then(data => {
+			this.setState({
+				trelloLabels: data
+			});
+		});
+		fetch(urlLabelsAndCardsTrello)
+		.then(response => response.json())
+		.then(data => {
+			this.setState({
+				dataLabels: data
+			});
+		});
+	}
+
 
 // ======== GENERATE CHARTS DATA
 
@@ -92,13 +104,34 @@ generateDataCardsByLists = () => {
 
 generateDataCardsByLabels = () => {
 	let dataCardsByLabels = [];
-	for (const item of this.state.dataLists) {
+
+	for (const item of this.state.trelloLabels) {
 		const itemToPush =
 			{
-			  arg: item.name,
-			  val: item.cards.length
+			  arg: item.id,
+			  val: 0
 			}
 		dataCardsByLabels.push(itemToPush);
+	}
+
+	for (const item of this.state.dataLabels) {
+		for (let i = 0; i < item.idLabels.length; i++) {
+			const label = item.idLabels[i];
+			for (const eachLabel of dataCardsByLabels) {
+				if (eachLabel.arg === label) {
+					eachLabel.val++
+				}
+			}
+		}
+	}
+
+	for (const item of dataCardsByLabels) {
+		const labelIdToChange = item.arg
+		for (const eachOne of this.state.trelloLabels) {
+			if (labelIdToChange === eachOne.id) {
+				item.arg = eachOne.name
+			}
+		}
 	}
 	this.setState({
 		dataCardsByLabels
