@@ -5,12 +5,14 @@ import ChartCard from "./ChartCard";
 import ChartUserCard from "./ChartUserCard";
 import ChartUserLabel from "./ChartUserLabel";
 import OptionsDynamic from "./OptionsDynamic";
-import ChartDynamic from "./ChartDynamic";
 
 class Planning extends React.Component {
   render() {
     return (
       <section className="section__planning">
+        <div className="container-fluid">
+          <OptionsDynamic />
+        </div>
         <div className="container-fluid h-100">
           <div className="row h-100">
             <div className="col column__planning--chart">
@@ -30,14 +32,6 @@ class Planning extends React.Component {
               </div>
               <div className="container__planning--chart">
                 <ChartUserCard />
-              </div>
-            </div>
-            <div className="col column__planning--chart colum-dynamic">
-              <div className="container__planning--chart">
-                <OptionsDynamic />
-              </div>
-              <div className="container__planning--chart">
-                <ChartDynamic />
               </div>
             </div>
           </div>
