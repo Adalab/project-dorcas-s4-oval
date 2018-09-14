@@ -21,5 +21,10 @@
 }
 
 .chart_bars--adjustments {
-	height: 100%;
+  height: 100%;
+}
+.options-charts {
+  display: flex;
+  position: relative;
+  margin-top: 14vh;
 }

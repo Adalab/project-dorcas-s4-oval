@@ -10,7 +10,7 @@ class Planning extends React.Component {
   render() {
     return (
       <section className="section__planning">
-        <div className="container-fluid">
+        <div className="container-fluid options-charts">
           <OptionsDynamic />
         </div>
         <div className="container-fluid h-100">
