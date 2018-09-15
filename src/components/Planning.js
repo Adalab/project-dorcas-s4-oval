@@ -13,25 +13,38 @@ class Planning extends React.Component {
         <div className="container-fluid options-charts">
           <OptionsDynamic />
         </div>
-        <div className="container-fluid h-100">
-          <div className="row h-100">
-            <div className="col column__planning--chart">
-              <div className="container__planning--chart">
-                <ChartCard
-                  dataLists={this.props.dataLists}
-                  dataCardsByLists={this.props.dataCardsByLists}
-                />
+        <div className="main__charts">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-6">
+                <div className="chart">
+                  <div className="chart__item">
+                    <ChartCard
+                      dataLists={this.props.dataLists}
+                      dataCardsByLists={this.props.dataCardsByLists}
+                    />
+                  </div>
+                </div>
+
+                <div className="chart">
+                  <div className="chart__item">
+                    <ChartLabel
+                      dataCardsByLabels={this.props.dataCardsByLabels}
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="container__planning--chart">
-                <ChartLabel dataCardsByLabels={this.props.dataCardsByLabels} />
-              </div>
-            </div>
-            <div className="col column__planning--chart">
-              <div className="container__planning--chart">
-                <ChartUserLabel />
-              </div>
-              <div className="container__planning--chart">
-                <ChartUserCard />
+              <div className="col-6">
+                <div className="chart">
+                  <div className="chart__item">
+                    <ChartUserLabel />
+                  </div>
+                </div>
+                <div className="chart">
+                  <div className="chart__item">
+                    <ChartUserCard />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

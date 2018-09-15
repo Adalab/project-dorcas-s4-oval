@@ -1,6 +1,5 @@
 .options_container {
-  display: flex;
-  width: 100vh; }
+  text-align: left; }
 
 .options__select {
   width: 200px;
