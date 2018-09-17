@@ -1,8 +1,5 @@
 .header {
   border-bottom: 1px solid black;
-  height: 8vh;
-  min-height: 60px;
-  padding: 7px 0 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,14 +15,6 @@
   font-family: "AvenirLTStd-Black";
 }
 
-.header__container-logo {
-  width: 6%;
-  min-width: 80px;
-}
-
-.header__logo {
-  width: 100%;
-}
 .header__container-nav {
   height: 100%;
   width: 30%;
@@ -37,4 +26,3 @@
   align-items: center;
   justify-content: space-around;
 }
-

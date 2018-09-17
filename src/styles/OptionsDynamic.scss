@@ -1,28 +1,21 @@
-.options__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+.options_container {
+  text-align: left;
 }
-.options__filter--title{
-  font-size: 1.2rem;
-}
-
-.options__select-user {
+.options__select {
   width: 200px;
   margin-bottom: 5px;
+}
+.user {
   color: #ca545d;
   border: 2px solid #ca545d;
 }
 
-.options__select-label {
-  width: 200px;
-  margin-bottom: 5px;
+.label {
   color: #75bce7;
   border: 2px solid #75bce7;
 }
-.options__select-list {
-  width: 200px;
+
+.list {
   color: #fd8127;
   border: 2px solid #fd8127;
 }
