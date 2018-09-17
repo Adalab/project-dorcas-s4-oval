@@ -17,7 +17,8 @@ class BarChart extends React.Component {
 		super(props)
 		this.state = {
 			dataTrello: [],
-			dataUsers: ""
+			dataUsers: "",
+			dataList: ""
 		}
 		this.lists = [];
 		this.users = [];
@@ -42,8 +43,9 @@ class BarChart extends React.Component {
 		}).then(resp => {
 		  return resp.json()
 		}).then(data => {
-		  self.lists = data
-	
+			self.lists = data
+			this.setState({dataLists: data})
+
 		  let users = _.map(self.members, (member) => {
 			let v = {
 			  idMember: member.id,
@@ -76,7 +78,6 @@ class BarChart extends React.Component {
 	
 			users = _.values(users)
 			this.setState({dataUsers: users })
-		  console.log(users)
 		})
 	  }
 	
@@ -84,7 +85,7 @@ class BarChart extends React.Component {
 		return (
 		  <div className="App">
 			  <Chart
-		dataSource={this.users}
+		dataSource={this.state.dataUsers}
 		title={" "}
 	  >
 		<CommonSeriesSettings
@@ -92,17 +93,9 @@ class BarChart extends React.Component {
 		  type={"bar"}
 		  hoverMode={"allArgumentPoints"}
 		/>
-
-		{
-			this.users.map( () => {
-				return _.forEach(element => {
-					if(element === "user") {
-					return (<Series valueField={element} name={element} />)
-					}
-				})
-			})
-		}
-		
+			
+			<Series valueField={"backlog"} name={"Backlog"} />
+			
 	  </Chart>
 
 				</div>

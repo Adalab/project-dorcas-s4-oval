@@ -6,7 +6,7 @@ class Donought extends React.Component {
 	render(){
 
 
-console.log(this.props.dataSource);
+//console.log(this.props.dataSource);
 
 		return (
 
