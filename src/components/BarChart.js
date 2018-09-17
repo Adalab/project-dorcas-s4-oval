@@ -3,6 +3,8 @@ import Chart, {
 	CommonSeriesSettings,
 	Series
 } from "devextreme-react/ui/chart";
+import * as _ from 'lodash';
+
 
 const dataLaberList = [
 	{
@@ -174,42 +176,102 @@ const dataLaberList = [
 		front:0
 	}
 ];
+const dataFetch = 'https://api.trello.com/1/boards/mxCDI6M3/cards';
+const memberFetch = 'https://api.trello.com/1/boards/mxCDI6M3/members';
+const listFetch = 'https://api.trello.com/1/boards/mxCDI6M3/lists';
+
+const dataUserCard = [
 
 class BarChart extends React.Component {
-	render(){
+	constructor(props) {
+		super(props)
+		this.state = {
+		  dataTrello: []
+		}
+		this.lists = [];
+		this.users = [];
+		this.cards = [];
+	
+		this.getData();
+	  }
+	
+	  getData () {
+		let self = this
+		fetch(dataFetch)
+		.then( (resp) => {
+		  return resp.json()
+		}).then (data => {
+		  self.cards = data
+		  return fetch(memberFetch)
+		}).then (resp => {
+		  return resp.json()
+		}).then(data => {
+		  self.members = data
+		  return fetch(listFetch)
+		}).then(resp => {
+		  return resp.json()
+		}).then(data => {
+		  self.lists = data
+	
+		  let users = _.map(self.members, (member) => {
+			let v = {
+			  idMember: member.id,
+			  user: member.fullName,
+			  listas: []
+			}
+	
+			_.forEach(self.lists, l => {
+			  v.listas[l.id] = 0
+			})
+	
+			return v
+		  })
+	
+		  users = _.keyBy(users, 'idMember')
+	
+		  _.forEach(self.cards, card => {
+			_.forEach(card.idMembers, idMember => {
+			  users[idMember].listas[card.idList]++
+			})
+		  })
+	
+		  _.forEach(users, u => {
+			_.forEach(self.lists, l => {
+			  u[l.name.toLowerCase()] = u.listas[l.id]
+			})
+			delete u.idMember
+			delete u.listas
+		  })
+	
+		  users = _.values(users)
+		  console.log(users)
+		})
+	  }
+	
+	  render() {
 		return (
+		  <div className="App">
+			  <Chart
+		dataSource={dataUserCard}
+		title={" "}
+	  >
+		<CommonSeriesSettings
+		  argumentField={"user"}
+		  type={"bar"}
+		  hoverMode={"allArgumentPoints"}
+		/>
+	
+		<Series valueField={"backlog"} name={"Backlog"} />
+		<Series valueField={"nexsprint"} name={"Nex Sprint"} />
+		<Series valueField={"sprint"} name={"Sprint"} />
+		<Series valueField={"todo"} name={"To do"} />
+		<Series valueField={"doing"} name={"Doing"} />
+		<Series valueField={"blockedortesting"} name={"Blocked or testing"} />
+		<Series valueField={"done"} name={"Done"} />
+		<Series valueField={"Dismiss"} name={"Dismiss"} />
+	
+	  </Chart>
 
-			<div className="chart_bars--adjustments">
-				<Chart
-					dataSource={dataLaberList}
-					title={" "}
-					>
-						<CommonSeriesSettings
-							argumentField={"list"}
-							type={"bar"}
-							hoverMode={"allArgumentPoints"}
-						/>
-
-						<Series valueField={"nourgente"} name={"No Urgente"} />
-						<Series valueField={"fueradesprint"} name={"Fuera de Sprint"} />
-						<Series valueField={"feature"} name={"Feature"} />
-						<Series valueField={"incidenciadeseguridadolegal"} name={"Incidencia de Seguridad o Legal"} />
-						<Series valueField={"incidenciaobug"} name={"Incidencia o bug"} />
-						<Series valueField={"soporte"} name={"Soporte"} />
-						<Series valueField={"mantenimiento"} name={"Mantenimiento"} />
-						<Series valueField={"epic"} name={"Epic"} />
-						<Series valueField={"l"} name={"L"} />
-						<Series valueField={"m"} name={"M"} />
-						<Series valueField={"s"} name={"S"} />
-						<Series valueField={"xl"} name={"XL"} />
-						<Series valueField={"xs"} name={"XS"} />
-						<Series valueField={"xxl"} name={"XXL"} />
-						<Series valueField={"xxs"} name={"XXS"} />
-						<Series valueField={"back"} name={"Back"} />
-						<Series valueField={"calculo"} name={"Calculo"} />
-						<Series valueField={"front"} name={"Front"} />
-
-					</Chart>
 				</div>
 			);
 		}
