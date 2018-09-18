@@ -1,10 +1,17 @@
 import React from 'react';
-import PieChart, {Series, Label, Legend} from 'devextreme-react/ui/pie-chart';
+import PieChart, {Series, Label, Tooltip,Legend} from 'devextreme-react/ui/pie-chart';
 
 class Donought extends React.Component {
 
-	render(){
+	customizeText = point => {
+		if (point.value === 0) {
+		return ;
+	} else {
+	    return point.argumentText + ' : ' + point.value;
+	}
+}
 
+	render(){
 
 //console.log(this.props.dataSource);
 
@@ -16,20 +23,27 @@ class Donought extends React.Component {
 					dataSource={this.props.dataSource}
 				  >
 
-				  <Legend
-					  horizontalAlignment={"left"}
-					  verticalAlignment={"bottom"}
-					  margin={1}
-				  />
-
 				  <Series
 					  argumentField={'arg'}
-				  />
+				  >
 
 				  <Label
 					  argumentField={'arg'}
 					  visible={true}
+					  connector={{ visible: true }}
+					  customizeText={this.customizeText}
 					/>
+
+				</Series>
+
+				<Legend
+					visible={false}
+				/>
+
+                <Tooltip
+                    enabled={true}
+                    shared={true}
+				/>
 
 				</PieChart>
 

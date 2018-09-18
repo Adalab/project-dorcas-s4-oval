@@ -3,6 +3,8 @@ import Chart, {
     CommonSeriesSettings,
     Series
   } from "devextreme-react/ui/chart";
+  import * as _ from 'lodash';
+
 
   const dataUserCard = [
     {
@@ -72,8 +74,82 @@ import Chart, {
       dismiss:0
     },
   ];
-
+ 
+  const dataFetch = 'https://api.trello.com/1/boards/mxCDI6M3/cards';
+  const memberFetch = 'https://api.trello.com/1/boards/mxCDI6M3/members';
+  const labelFetch = 'https://api.trello.com/1/boards/mxCDI6M3/labels';
+  
 class MultipleBarChart extends React.Component {
+  constructor(props){
+  super(props)
+		this.state = {
+			dataTrello: [],
+			dataUsers: [],
+			dataLabel: []
+		}
+		this.labels = [];
+		this.users = [];
+		this.cards = [];
+
+    this.getData();
+  }
+
+
+  getData() {
+		let self = this
+		fetch(dataFetch)
+			.then((resp) => {
+				return resp.json()
+			}).then(data => {
+				self.cards = data
+				return fetch(memberFetch)
+			}).then(resp => {
+				return resp.json()
+			}).then(data => {
+				self.members = data
+				return fetch(labelFetch)
+			}).then(resp => {
+				return resp.json()
+			}).then(data => {
+				self.lists = data
+
+				let users = _.map(self.members, (member) => {
+					let v = {
+						idMember: member.id,
+						user: member.fullName,
+						listas: []
+					}
+
+					_.forEach(self.lists, l => {
+						v.listas[l.id] = 0
+					})
+
+					return v
+				})
+
+				users = _.keyBy(users, 'idMember')
+
+				_.forEach(self.cards, card => {
+					_.forEach(card.idMembers, idMember => {
+						users[idMember].listas[card.idList]++
+					})
+				})
+
+				_.forEach(users, u => {
+					_.forEach(self.lists, l => {
+						u[l.name.toLowerCase()] = u.listas[l.id]
+					})
+					delete u.idMember
+					delete u.listas
+				})
+
+				users = _.values(users)
+
+				this.setState({ dataUsers: users, dataList: data })
+
+			})
+	}
+
 render(){
 return (
     <Chart

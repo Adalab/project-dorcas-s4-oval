@@ -104,8 +104,7 @@ class BarChart extends React.Component {
 						})
 					}
 
-					<Series valueField={item.name.toLowerCase()} name={item.name} />
-					<Series valueField={item.name.toLowerCase()} name={item.name} />
+				
 
 				</Chart>
 			</div>
