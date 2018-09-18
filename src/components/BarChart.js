@@ -1,61 +1,49 @@
-import React from 'react';
+import React from "react";
 import Chart, {
-	CommonSeriesSettings,
-	Series,
-	Legend,
-	Tooltip
+  CommonSeriesSettings,
+  Series,
+  Legend,
+  Tooltip
 } from "devextreme-react/ui/chart";
 
-
-
 class BarChart extends React.Component {
-	
-	render() {
-		return (
-			<React.Fragment>
+  render() {
+    return (
+      <React.Fragment>
+        {this.props.dataUsers ? (
+          <Chart dataSource={this.props.dataUsers} title={" "}>
+            <CommonSeriesSettings
+              argumentField={"user"}
+              type={"bar"}
+              hoverMode={"allArgumentPoints"}
+            />
 
-				{this.state.dataUsers ?
+            {/* { dataList.map( list => <Series valueField={list} name={list} />) } */}
 
-					<Chart
-						dataSource={this.state.dataUsers}
-						title={" "}
-					>
-						<CommonSeriesSettings
-							argumentField={"user"}
-							type={"bar"}
-							hoverMode={"allArgumentPoints"}
-						/>
+            {/* {teste.map( item => item )} */}
 
-						{/* { dataList.map( list => <Series valueField={list} name={list} />) } */}
+            <Series valueField="documentación" name="documentación" />
+            <Series valueField="roles" name="roles" />
+            <Series valueField="hitos" name="hitos" />
+            <Series valueField="backlog" name="backlog" />
+            <Series valueField="sprint backlog" name="sprint backlog" />
+            <Series valueField="en progreso" name="en progreso" />
+            <Series
+              valueField="en aprobación/validación/pr"
+              name="en aprobación/validación/pr"
+            />
+            <Series valueField="terminadas" name="terminadas" />
+            <Series valueField="bloqueadas" name="bloqueadas" />
+            <Series valueField="sprints" name="sprints" />
 
-						{/* {teste.map( item => item )} */}
+            <Legend verticalAlignment={"top"} horizontalAlignment={"right"} />
 
-					<Series valueField="documentación" name="documentación" />
-					<Series valueField="roles" name="roles" />
-					<Series valueField="hitos" name="hitos" />
-					<Series valueField="backlog" name="backlog" />
-					<Series valueField="sprint backlog" name="sprint backlog" />
-					<Series valueField="en progreso" name="en progreso" />
-					<Series valueField="en aprobación/validación/pr" name="en aprobación/validación/pr" />
-					<Series valueField="terminadas" name="terminadas" />
-					<Series valueField="bloqueadas" name="bloqueadas" />
-					<Series valueField="sprints" name="sprints" />
-
-						<Legend
-							verticalAlignment={"top"}
-							horizontalAlignment={"right"}
-						/>
-
-						<Tooltip
-		          enabled={true}
-		          shared={true}
-						/>
-
-					</Chart>
-				: null
-				}
-			</React.Fragment>
-		)}
+            <Tooltip enabled={true} shared={true} />
+          </Chart>
+        ) : null}
+      </React.Fragment>
+    );
+  }
 }
 
 export default BarChart;
