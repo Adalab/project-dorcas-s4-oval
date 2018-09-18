@@ -9,7 +9,7 @@ class ChartUserCard extends React.Component {
 		return (
 			<div className="graphic__container">
 
-				<h4 className="chart__title">Cards by Users/Lists</h4>
+				<h4 className="chart__title">Cards by Lists/Labels</h4>
 
 					<MultipleBarChart className="chart_bars--adjustments"/>
 			</div>
