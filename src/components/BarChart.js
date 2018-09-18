@@ -119,7 +119,7 @@ class BarChart extends React.Component {
 
 	render() {
 		return (
-			<div className="App">
+			<React.Fragment>
 
 				{this.state.dataUsers ?
 
@@ -154,14 +154,14 @@ class BarChart extends React.Component {
 						/>
 
 						<Tooltip
-		                    enabled={true}
-		                    shared={true}
+		          enabled={true}
+		          shared={true}
 						/>
 
 					</Chart>
 				: null
 				}
-			</div>
+			</React.Fragment>
 		)}
 }
 
