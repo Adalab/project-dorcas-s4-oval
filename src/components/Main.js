@@ -13,11 +13,13 @@ class Main extends React.Component {
             path="/"
             render={() => (
               <Planning
-                Lists={this.props.Lists}
+                lists={this.props.lists}
                 dataUsers={this.props.dataUsers}
                 dataLists={this.props.dataLists}
                 dataCardsByLists={this.props.dataCardsByLists}
                 dataCardsByLabels={this.props.dataCardsByLabels}
+                dataUsersLabels={this.props.dataUsersLabels}
+                labels={this.props.labels}
               />
             )}
           />

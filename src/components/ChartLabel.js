@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/ChartLabel.css";
 import Donut from "./Donut";
 
 class ChartLabel extends React.Component {
@@ -10,8 +9,8 @@ class ChartLabel extends React.Component {
         {this.props.dataCardsByLabels ? (
           <Donut dataSource={this.props.dataCardsByLabels} />
         ) : (
-          <p>Loading Card</p>
-        )}
+            <p>Loading Card</p>
+          )}
       </div>
     );
   }

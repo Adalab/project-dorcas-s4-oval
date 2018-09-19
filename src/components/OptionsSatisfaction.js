@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/OptionsSatisfaction.css";
 
 class OptionsSatisfaction extends React.Component {
   render() {

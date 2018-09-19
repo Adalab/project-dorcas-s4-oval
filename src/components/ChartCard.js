@@ -10,8 +10,8 @@ class ChartCard extends React.Component {
         {this.props.dataCardsByLists ? (
           <Donut dataSource={this.props.dataCardsByLists} />
         ) : (
-          <p>Loading Chart</p>
-        )}
+            <p>Loading Chart</p>
+          )}
       </div>
     );
   }

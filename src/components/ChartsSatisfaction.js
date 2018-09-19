@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/ChartsSatisfaction.css";
-import barsUser from "../images/bars-users.jpg";
 import Chart, {
     CommonSeriesSettings,
     Series,

@@ -1,32 +1,35 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 import "./styles/App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Keys from "./keys/keys";
 import * as _ from "lodash";
 
-const DASHBOARD = "n70jUITJ";
+const DASHBOARD = "BqZWFU8v";
+
 const urlDataTrello = `https://api.trello.com/1/boards/${DASHBOARD}/lists?cards=all&card_fields=id%2Cname%2CidMembers%2Clabels&filter=open&fields=id%2Cname&key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
-const urlUsersTrello = `https://api.trello.com/1/boards/${DASHBOARD}/members?key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const urlLabelsTrello = `https://api.trello.com/1/boards/${DASHBOARD}/labels?fields=id%2Cname&key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const urlLabelsAndCardsTrello = `https://api.trello.com/1/boards/${DASHBOARD}/cards/?fields=name,idList,idLabels&key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const dataFetch = `https://api.trello.com/1/boards/${DASHBOARD}/cards?key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const memberFetch = `https://api.trello.com/1/boards/${DASHBOARD}/members?key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const listFetch = `https://api.trello.com/1/boards/${DASHBOARD}/lists?key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
+const labelFetch = `https://api.trello.com/1/boards/${DASHBOARD}/labels?key=${
+  Keys.trello.key
+  }&token=${Keys.trello.token}`;
 
 class App extends Component {
   constructor(props) {
@@ -35,39 +38,34 @@ class App extends Component {
     this.lists = [];
     this.users = [];
     this.cards = [];
+    this.cardsLabels = [];
+    this.labels = [];
 
     this.state = {
       usersTrello: [],
       dataLists: [],
       dataLabels: [],
-      dataSatisfaction: [],
       dataCardsByLists: null,
       trelloLabels: [],
       dataCardsByLabels: null,
-      dataTrello: [],
       dataUsers: null,
       dataList: [],
-      Lists: null
+      dataBoardlabels: [],
+      dataUsersLabels: null,
+      lists: null,
+      labels: null
     };
   }
   // ======== REACT LIFECYCLE METHODS
+
   componentDidMount() {
-    this.getUsersTrello();
     this.getDataTrello();
     this.getLabelsTrello();
     this.getData();
   }
 
   // ======== API accesses
-  getUsersTrello = () => {
-    fetch(urlUsersTrello)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          usersTrello: data
-        });
-      });
-  };
+
 
   getDataTrello = () => {
     fetch(urlDataTrello)
@@ -80,6 +78,7 @@ class App extends Component {
       })
       .then(() => this.generateDataCardsByLists());
   };
+
   getLabelsTrello = () => {
     fetch(urlLabelsTrello)
       .then(response => response.json())
@@ -118,6 +117,7 @@ class App extends Component {
       dataCardsByLists
     });
   };
+
   //-- Labels/Cards
 
   generateDataCardsByLabels = () => {
@@ -154,39 +154,45 @@ class App extends Component {
       dataCardsByLabels
     });
   };
-  /////////////////////////////////////////////////////////////////////////////
 
   getData() {
-    let self = this;
     fetch(dataFetch)
       .then(resp => {
         return resp.json();
       })
       .then(data => {
-        self.cards = data;
+        this.cards = data;
         return fetch(memberFetch);
       })
       .then(resp => {
         return resp.json();
       })
       .then(data => {
-        self.members = data;
+        this.members = data;
+        this.setState({ usersTrello: data });
         return fetch(listFetch);
       })
       .then(resp => {
         return resp.json();
       })
       .then(data => {
-        self.lists = data;
+        this.lists = data;
+        return fetch(labelFetch);
+      })
+      .then(resp => {
+        return resp.json();
+      })
+      .then(data => {
+        this.labels = data;
 
-        let users = _.map(self.members, member => {
+        let users = _.map(this.members, member => {
           let v = {
             idMember: member.id,
             user: member.username,
             listas: []
           };
 
-          _.forEach(self.lists, l => {
+          _.forEach(this.lists, l => {
             v.listas[l.id] = 0;
           });
 
@@ -194,31 +200,73 @@ class App extends Component {
         });
 
         users = _.keyBy(users, "idMember");
-
-        _.forEach(self.cards, card => {
+        _.forEach(this.cards, card => {
           _.forEach(card.idMembers, idMember => {
             users[idMember].listas[card.idList]++;
           });
         });
-
+        console.log(users);
         _.forEach(users, u => {
-          _.forEach(self.lists, l => {
+          _.forEach(this.lists, l => {
             u[l.name.toLowerCase()] = u.listas[l.id];
-          });
+          })
+
           delete u.idMember;
           delete u.listas;
         });
-
         users = _.values(users);
 
-        this.setState({ dataUsers: users, dataList: data });
-      });
+        let usersLabels = _.map(this.members, member => {
+          let v = {
+            idMember: member.id,
+            user: member.username,
+            labels: []
+          };
+
+          _.forEach(this.labels, l => {
+            v.labels[l.id] = 0;
+          });
+
+          return v;
+        });
+
+        usersLabels = _.keyBy(usersLabels, "idMember");
+        _.forEach(this.cards, card => {
+          _.forEach(card.idMembers, idMember => {
+            _.forEach(card.idLabels, idLabel => {
+              usersLabels[idMember].labels[idLabel]++;
+            })
+          });
+        });
+        _.forEach(usersLabels, u => {
+
+          _.forEach(this.labels, l => {
+            u[l.name] = u.labels[l.id];
+          });
+          delete u.idMember;
+          delete u.labels;
+        });
+
+        usersLabels = _.values(usersLabels);
+
+        this.setState({
+          dataUsers: users,
+          dataList: this.lists,
+          dataBoardlabels: this.labels,
+          dataUsersLabels: usersLabels
+        });
+      })
   }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.dataUsers !== this.state.dataUsers) {
       this.getLists();
     }
+    if (prevState.dataUsersLabels !== this.state.dataUsersLabels) {
+      this.getLabels();
+    }
   }
+
   getLists() {
     let dataList = [];
 
@@ -231,27 +279,41 @@ class App extends Component {
     }
     dataList = [...new Set(dataList)];
     this.setState({
-      Lists: dataList
+      lists: dataList
+    });
+  }
+
+  getLabels() {
+    let dataLabels = [];
+
+    for (const object of this.state.dataUsersLabels) {
+      for (let i in object) {
+        if (typeof object[i] === "number") {
+          dataLabels.push(i);
+        }
+      }
+    }
+    dataLabels = [...new Set(dataLabels)];
+    this.setState({
+      labels: dataLabels
     });
   }
 
   render() {
-    return (
-      <div className="App">
-        <Header />
-
-        {/* {this.state.dataCardsByLists && this.state.dataCardsByLabels ? */}
-        <Main
-          Lists={this.state.Lists}
+    return (<div className="App" >
+      <Header />
+      {this.state.dataCardsByLists && this.state.dataCardsByLabels ?
+        <Main lists={this.state.lists}
           dataUsers={this.state.dataUsers}
           dataLists={this.state.dataLists}
           dataSatisfaction={this.state.dataSatisfaction}
           dataCardsByLists={this.state.dataCardsByLists}
           dataCardsByLabels={this.state.dataCardsByLabels}
-        />
-        {/* : <p className="loading">Loading data</p> */}
-        {/* } */}
-      </div>
+          dataUsersLabels={this.state.dataUsersLabels}
+          labels={this.state.labels} />
+        : <p className="loading">Loading data</p>
+      }
+    </div>
     );
   }
 }

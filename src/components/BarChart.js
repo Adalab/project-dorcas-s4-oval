@@ -13,7 +13,7 @@ class BarChart extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.dataUsers && this.props.Lists ? (
+        {this.props.dataUsers && this.props.lists ? (
           <Chart dataSource={this.props.dataUsers} title={" "}>
             <CommonSeriesSettings
               argumentField={"user"}
@@ -25,7 +25,7 @@ class BarChart extends React.Component {
             </ArgumentAxis>
             <LoadingIndicator show={true} />
 
-            {this.props.Lists.map(list => {
+            {this.props.lists.map(list => {
               return <Series valueField={list} name={list} />;
             })}
 

@@ -7,23 +7,23 @@ let jobMedia = [];
 
 class MediaSatisfaction extends React.Component {
 
-	componentDidMount() {
-		this.calculateMedias();
-		}
+  componentDidMount() {
+    this.calculateMedias();
+  }
 
-	calculateMedias = () => {
-		const dataUserSatisfaction = this.props.dataUserSatisfaction;
+  calculateMedias = () => {
+    const dataUserSatisfaction = this.props.dataUserSatisfaction;
 
-		for (const user of dataUserSatisfaction) {
-			initialMedia.push(user.initialstate);
-			finalMedia.push(user.finalestate);
-			jobMedia.push(user.dailysatisfaction);
-		}
+    for (const user of dataUserSatisfaction) {
+      initialMedia.push(user.initialstate);
+      finalMedia.push(user.finalestate);
+      jobMedia.push(user.dailysatisfaction);
+    }
 
-		initialMedia = Math.round((initialMedia.reduce((a,b) => a + b) / initialMedia.length)*10) /10
-		finalMedia = Math.round((finalMedia.reduce((a,b) => a + b) / finalMedia.length)*10) /10
-		jobMedia = Math.round((jobMedia.reduce((a,b) => a + b) / jobMedia.length)*10) /10
-	}
+    initialMedia = Math.round((initialMedia.reduce((a, b) => a + b) / initialMedia.length) * 10) / 10
+    finalMedia = Math.round((finalMedia.reduce((a, b) => a + b) / finalMedia.length) * 10) / 10
+    jobMedia = Math.round((jobMedia.reduce((a, b) => a + b) / jobMedia.length) * 10) / 10
+  }
 
   render() {
     return (
