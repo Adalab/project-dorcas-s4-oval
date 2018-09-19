@@ -50,6 +50,7 @@ class ChartsSatisfaction extends React.Component {
   render() {
     return (
       <div className="satisfation__media-personal">
+		  <div className="satisfaction__chart-container">
       <Chart
       dataSource={dataUserSatisfaction}
     title={" "}
@@ -65,6 +66,7 @@ class ChartsSatisfaction extends React.Component {
       <Series valueField={"dailysatisfaction"} name={"Daily satisfaction"} />
 
     </Chart>
+	</div>
       </div>
     );
   }

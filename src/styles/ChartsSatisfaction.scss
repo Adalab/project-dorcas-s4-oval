@@ -1,4 +1,11 @@
 .satisfation__media-personal {
-  display: flex;
-  justify-content: center;
+	display        : flex;
+	justify-content: center;
+	width          : 100%;
+}
+
+.satisfaction__chart-container {
+	width     : 100%;
+	height    : 90%;
+	margin-top: 50px;
 }
