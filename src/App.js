@@ -39,6 +39,7 @@ class App extends Component {
     this.lists = [];
     this.users = [];
     this.cards = [];
+    this.cardsLabels = [];
     this.labels = [];
 
     this.state = {
@@ -245,7 +246,9 @@ class App extends Component {
         usersLabels = _.keyBy(usersLabels, "idMember");
         _.forEach(self.cards, card => {
           _.forEach(card.idMembers, idMember => {
-            usersLabels[idMember].labels[card.idLabels]++;
+            _.forEach(card.idLabels, idLabel => {
+              usersLabels[idMember].labels[idLabel]++;
+            })
           });
         });
         console.log(usersLabels);
