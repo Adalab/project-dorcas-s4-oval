@@ -7,7 +7,7 @@ import Main from "./components/Main";
 import Keys from "./keys/keys";
 import * as _ from "lodash";
 
-const DASHBOARD = "BqZWFU8v";
+const DASHBOARD = "n70jUITJ";
 
 const urlDataTrello = `https://api.trello.com/1/boards/${DASHBOARD}/lists?cards=all&card_fields=id%2Cname%2CidMembers%2Clabels&filter=open&fields=id%2Cname&key=${
   Keys.trello.key
