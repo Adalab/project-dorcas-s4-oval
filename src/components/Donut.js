@@ -1,5 +1,5 @@
 import React from 'react';
-import PieChart, {Series, Label, Tooltip,Legend} from 'devextreme-react/ui/pie-chart';
+import PieChart, {Series, Label, Tooltip,Legend, LoadingIndicator} from 'devextreme-react/ui/pie-chart';
 
 class Donought extends React.Component {
 
@@ -26,6 +26,7 @@ class Donought extends React.Component {
 				  <Series
 					  argumentField={'arg'}
 				  >
+					<LoadingIndicator show={true} />
 
 				  <Label
 					  argumentField={'arg'}
