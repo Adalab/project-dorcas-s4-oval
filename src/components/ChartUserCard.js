@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/ChartUserCard.css";
-import MultipleBarChart from "./MultipleBarChart";
 import BarChart from "./BarChart";
 
 class ChartUserCard extends React.Component {
