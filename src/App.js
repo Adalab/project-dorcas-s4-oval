@@ -27,9 +27,6 @@ const listFetch = `https://api.trello.com/1/boards/BqZWFU8v/lists?key=${
   Keys.trello.key
 }&token=${Keys.trello.token}`;
 
-let dataList = [];
-let teste = [];
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +45,8 @@ class App extends Component {
       dataCardsByLabels: null,
       dataTrello: [],
       dataUsers: null,
-      dataList: []
+      dataList: [],
+      Lists: null
     };
   }
   // ======== REACT LIFECYCLE METHODS
@@ -183,7 +181,7 @@ class App extends Component {
         let users = _.map(self.members, member => {
           let v = {
             idMember: member.id,
-            user: member.fullName,
+            user: member.username,
             listas: []
           };
 
@@ -221,7 +219,8 @@ class App extends Component {
     }
   }
   getLists() {
-    console.log(this.state.dataUsers);
+    let dataList = [];
+
     for (const object of this.state.dataUsers) {
       for (let i in object) {
         if (typeof object[i] === "number") {
@@ -230,11 +229,9 @@ class App extends Component {
       }
     }
     dataList = [...new Set(dataList)];
-    console.log(dataList);
-    for (const list of dataList) {
-      teste.push(`<Series valueField="${list}" name="${list}" />`);
-    }
-    console.log(teste);
+    this.setState({
+      Lists: dataList
+    });
   }
 
   render() {
@@ -244,6 +241,7 @@ class App extends Component {
 
         {/* {this.state.dataCardsByLists && this.state.dataCardsByLabels ? */}
         <Main
+          Lists={this.state.Lists}
           dataUsers={this.state.dataUsers}
           dataLists={this.state.dataLists}
           dataSatisfaction={this.state.dataSatisfaction}
