@@ -5,25 +5,26 @@ import Main from "./components/Main";
 import Keys from "./keys/keys";
 import * as _ from "lodash";
 
-const urlDataTrello = `https://api.trello.com/1/boards/n70jUITJ/lists?cards=all&card_fields=id%2Cname%2CidMembers%2Clabels&filter=open&fields=id%2Cname&key=${
+const DASHBOARD = "n70jUITJ";
+const urlDataTrello = `https://api.trello.com/1/boards/${DASHBOARD}/lists?cards=all&card_fields=id%2Cname%2CidMembers%2Clabels&filter=open&fields=id%2Cname&key=${
   Keys.trello.key
 }&token=${Keys.trello.token}`;
-const urlUsersTrello = `https://api.trello.com/1/boards/n70jUITJ/members?key=${
+const urlUsersTrello = `https://api.trello.com/1/boards/${DASHBOARD}/members?key=${
   Keys.trello.key
 }&token=${Keys.trello.token}`;
-const urlLabelsTrello = `https://api.trello.com/1/boards/n70jUITJ/labels?fields=id%2Cname&key=${
+const urlLabelsTrello = `https://api.trello.com/1/boards/${DASHBOARD}/labels?fields=id%2Cname&key=${
   Keys.trello.key
 }&token=${Keys.trello.token}`;
-const urlLabelsAndCardsTrello = `https://api.trello.com/1/boards/n70jUITJ/cards/?fields=name,idList,idLabels&key=${
+const urlLabelsAndCardsTrello = `https://api.trello.com/1/boards/${DASHBOARD}/cards/?fields=name,idList,idLabels&key=${
   Keys.trello.key
 }&token=${Keys.trello.token}`;
-const dataFetch = `https://api.trello.com/1/boards/BqZWFU8v/cards?key=${
+const dataFetch = `https://api.trello.com/1/boards/${DASHBOARD}/cards?key=${
   Keys.trello.key
 }&token=${Keys.trello.token}`;
-const memberFetch = `https://api.trello.com/1/boards/BqZWFU8v/members?key=${
+const memberFetch = `https://api.trello.com/1/boards/${DASHBOARD}/members?key=${
   Keys.trello.key
 }&token=${Keys.trello.token}`;
-const listFetch = `https://api.trello.com/1/boards/BqZWFU8v/lists?key=${
+const listFetch = `https://api.trello.com/1/boards/${DASHBOARD}/lists?key=${
   Keys.trello.key
 }&token=${Keys.trello.token}`;
 
