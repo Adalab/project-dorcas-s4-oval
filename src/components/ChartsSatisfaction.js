@@ -3,48 +3,11 @@ import "../styles/ChartsSatisfaction.css";
 import barsUser from "../images/bars-users.jpg";
 import Chart, {
     CommonSeriesSettings,
-    Series
+    Series,
+	LoadingIndicator,
+	Legend,
+	Tooltip
   } from "devextreme-react/ui/chart";
-
-  const dataUserSatisfaction = [
-  {
-    user: "Aylen",
-    initialstate: 8,
-    finalestate: 10,
-    dailysatisfaction: 9
-
-  },
-  {
-    user: "Laura M",
-    initialstate: 2,
-    finalestate: 8,
-    dailysatisfaction: 6
-  },
-  {
-    user: "Laura D",
-    initialstate: 3,
-    finalestate: 9,
-    dailysatisfaction: 7
-  },
-  {
-    user: "Anna",
-    initialstate: 7,
-    estadofinal: 3,
-    dailysatisfaction: 2
-  },
-  {
-    user: "Carlos",
-    initialstate: 5,
-    finalestate: 4,
-    dailysatisfaction: 5
-  },
-  {
-    user: "Hector",
-    initialstate: 1,
-    finalestate: 3,
-    dailysatisfaction: 10
-  },
-];
 
 class ChartsSatisfaction extends React.Component {
   render() {
@@ -52,7 +15,7 @@ class ChartsSatisfaction extends React.Component {
       <div className="satisfation__media-personal">
 		  <div className="satisfaction__chart-container">
       <Chart
-      dataSource={dataUserSatisfaction}
+      dataSource={this.props.dataUserSatisfaction}
     title={" "}
     >
       <CommonSeriesSettings
@@ -61,9 +24,15 @@ class ChartsSatisfaction extends React.Component {
         hoverMode={"allArgumentPoints"}
       />
 
+	  <LoadingIndicator show={true} />
+
       <Series valueField={"initialstate"} name={"Initial state"} />
       <Series valueField={"finalestate"} name={"Final state"} />
       <Series valueField={"dailysatisfaction"} name={"Daily satisfaction"} />
+
+	  <Legend verticalAlignment={"bottom"} horizontalAlignment={"center"} />
+
+	  <Tooltip enabled={true} shared={true} />
 
     </Chart>
 	</div>
