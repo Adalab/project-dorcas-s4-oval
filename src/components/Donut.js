@@ -1,38 +1,36 @@
 import React from 'react';
-import PieChart, {Series, Label, Tooltip,Legend, LoadingIndicator} from 'devextreme-react/ui/pie-chart';
+import PieChart, { Series, Label, Tooltip, Legend, LoadingIndicator } from 'devextreme-react/ui/pie-chart';
 
 class Donought extends React.Component {
 
 	customizeText = point => {
 		if (point.value === 0) {
-		return ;
-	} else {
-	    return point.argumentText + ' : ' + point.value;
+			return;
+		} else {
+			return point.argumentText + ' : ' + point.value;
+		}
 	}
-}
 
-	render(){
-
-//console.log(this.props.dataSource);
+	render() {
 
 		return (
 
-				<PieChart
-					type={"doughnut"}
-					palette={"Soft Pastel"}
-					dataSource={this.props.dataSource}
-				  >
+			<PieChart
+				type={"doughnut"}
+				palette={"Soft Pastel"}
+				dataSource={this.props.dataSource}
+			>
 
-				  <Series
-					  argumentField={'arg'}
-				  >
+				<Series
+					argumentField={'arg'}
+				>
 					<LoadingIndicator show={true} />
 
-				  <Label
-					  argumentField={'arg'}
-					  visible={true}
-					  connector={{ visible: true }}
-					  customizeText={this.customizeText}
+					<Label
+						argumentField={'arg'}
+						visible={true}
+						connector={{ visible: true }}
+						customizeText={this.customizeText}
 					/>
 
 				</Series>
@@ -41,15 +39,15 @@ class Donought extends React.Component {
 					visible={false}
 				/>
 
-                <Tooltip
-                    enabled={true}
-                    shared={true}
+				<Tooltip
+					enabled={true}
+					shared={true}
 				/>
 
-				</PieChart>
+			</PieChart>
 
-		 );
-	 }
+		);
+	}
 }
 
 export default Donought;

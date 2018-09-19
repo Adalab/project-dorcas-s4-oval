@@ -10,8 +10,8 @@ class ChartLabel extends React.Component {
         {this.props.dataCardsByLabels ? (
           <Donut dataSource={this.props.dataCardsByLabels} />
         ) : (
-          <p>Loading Card</p>
-        )}
+            <p>Loading Card</p>
+          )}
       </div>
     );
   }

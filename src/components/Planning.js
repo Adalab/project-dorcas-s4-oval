@@ -45,9 +45,9 @@ class Planning extends React.Component {
                 </div>
                 <div className="chart">
                   <div className="chart__item">
-                    <ChartUserCard 
+                    <ChartUserCard
                       dataUsersLabels={this.props.dataUsersLabels}
-                      labels={this.props.labels}/>
+                      labels={this.props.labels} />
                   </div>
                 </div>
               </div>

@@ -8,7 +8,7 @@ class ChartUserLabel extends React.Component {
       <div className="graphic__container">
         <h4 className="chart__title">Cards by Users/Lists</h4>
 
-        <BarChart dataUsers={this.props.dataUsers} lists={this.props.lists}  />
+        <BarChart dataUsers={this.props.dataUsers} lists={this.props.lists} />
       </div>
     );
   }

@@ -11,25 +11,25 @@ const DASHBOARD = "BqZWFU8v";
 
 const urlDataTrello = `https://api.trello.com/1/boards/${DASHBOARD}/lists?cards=all&card_fields=id%2Cname%2CidMembers%2Clabels&filter=open&fields=id%2Cname&key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const urlLabelsTrello = `https://api.trello.com/1/boards/${DASHBOARD}/labels?fields=id%2Cname&key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const urlLabelsAndCardsTrello = `https://api.trello.com/1/boards/${DASHBOARD}/cards/?fields=name,idList,idLabels&key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const dataFetch = `https://api.trello.com/1/boards/${DASHBOARD}/cards?key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const memberFetch = `https://api.trello.com/1/boards/${DASHBOARD}/members?key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const listFetch = `https://api.trello.com/1/boards/${DASHBOARD}/lists?key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 const labelFetch = `https://api.trello.com/1/boards/${DASHBOARD}/labels?key=${
   Keys.trello.key
-}&token=${Keys.trello.token}`;
+  }&token=${Keys.trello.token}`;
 
 class App extends Component {
   constructor(props) {
@@ -169,7 +169,7 @@ class App extends Component {
       })
       .then(data => {
         this.members = data;
-        this.setState({usersTrello: data});
+        this.setState({ usersTrello: data });
         return fetch(listFetch);
       })
       .then(resp => {
@@ -300,20 +300,20 @@ class App extends Component {
   }
 
   render() {
-    return ( <div className = "App" >
+    return (<div className="App" >
       <Header />
-      { this.state.dataCardsByLists && this.state.dataCardsByLabels ?  
-      <Main lists = {this.state.lists}
-        dataUsers = {this.state.dataUsers}
-        dataLists = {this.state.dataLists}
-        dataSatisfaction = {this.state.dataSatisfaction}
-        dataCardsByLists = {this.state.dataCardsByLists}
-        dataCardsByLabels = {this.state.dataCardsByLabels}
-        dataUsersLabels = {this.state.dataUsersLabels}
-        labels = {this.state.labels}/>
+      {this.state.dataCardsByLists && this.state.dataCardsByLabels ?
+        <Main lists={this.state.lists}
+          dataUsers={this.state.dataUsers}
+          dataLists={this.state.dataLists}
+          dataSatisfaction={this.state.dataSatisfaction}
+          dataCardsByLists={this.state.dataCardsByLists}
+          dataCardsByLabels={this.state.dataCardsByLabels}
+          dataUsersLabels={this.state.dataUsersLabels}
+          labels={this.state.labels} />
         : <p className="loading">Loading data</p>
-    } 
-      </div>
+      }
+    </div>
     );
   }
 }

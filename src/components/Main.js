@@ -20,7 +20,7 @@ class Main extends React.Component {
                 dataCardsByLabels={this.props.dataCardsByLabels}
                 dataUsersLabels={this.props.dataUsersLabels}
                 labels={this.props.labels}
-                />
+              />
             )}
           />
           <Route
