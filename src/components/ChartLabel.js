@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/ChartLabel.css";
 import Donut from "./Donut";
 
 class ChartLabel extends React.Component {
