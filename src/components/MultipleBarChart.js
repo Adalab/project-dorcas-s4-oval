@@ -85,7 +85,7 @@ class MultipleBarChart extends React.Component {
 		this.state = {
 			dataTrello: [],
 			dataUsers: [],
-			dataLabel: []
+			dataLabels: []
 		}
 		this.labels = [];
 		this.users = [];
@@ -111,17 +111,17 @@ class MultipleBarChart extends React.Component {
 			}).then(resp => {
 				return resp.json()
 			}).then(data => {
-				self.lists = data
+				self.labels = data
 
 				let users = _.map(self.members, (member) => {
 					let v = {
 						idMember: member.id,
 						user: member.fullName,
-						listas: []
+						labels: []
 					}
 
-					_.forEach(self.lists, l => {
-						v.listas[l.id] = 0
+					_.forEach(self.labels, l => {
+						v.labels[l.id] = 0
 					})
 
 					return v
@@ -131,21 +131,21 @@ class MultipleBarChart extends React.Component {
 
 				_.forEach(self.cards, card => {
 					_.forEach(card.idMembers, idMember => {
-						users[idMember].listas[card.idList]++
+						users[idMember].labels[card.idLabels]++
 					})
 				})
 
 				_.forEach(users, u => {
-					_.forEach(self.lists, l => {
-						u[l.name.toLowerCase()] = u.listas[l.id]
+					_.forEach(self.labels, l => {
+						u[l.name.toLowerCase()] = u.labels[l.id]
 					})
 					delete u.idMember
-					delete u.listas
+					delete u.labels
 				})
 
 				users = _.values(users)
 
-				this.setState({ dataUsers: users, dataList: data })
+				this.setState({ dataUsers: users, dataLabels: data })
 
 			})
 	}
