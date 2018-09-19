@@ -5,33 +5,32 @@ import Main from "./components/Main";
 import Keys from "./keys/keys";
 import * as _ from "lodash";
 
-const urlDataTrello = `https://api.trello.com/1/boards/n70jUITJ/lists?cards=all&card_fields=id%2Cname%2CidMembers%2Clabels&filter=open&fields=id%2Cname&key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
-const urlUsersTrello = `https://api.trello.com/1/boards/n70jUITJ/members?key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
-const urlLabelsTrello = `https://api.trello.com/1/boards/n70jUITJ/labels?fields=id%2Cname&key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
-const urlLabelsAndCardsTrello = `https://api.trello.com/1/boards/n70jUITJ/cards/?fields=name,idList,idLabels&key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
-const dataFetch = `https://api.trello.com/1/boards/BqZWFU8v/cards?key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
-const memberFetch = `https://api.trello.com/1/boards/BqZWFU8v/members?key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
-const listFetch = `https://api.trello.com/1/boards/BqZWFU8v/lists?key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
-const labelFetch = `https://api.trello.com/1/boards/BqZWFU8v/labels?key=${
-  Keys.trello.key
-}&token=${Keys.trello.token}`;
+const DASHBOARD = "BqZWFU8v";
 
-let dataList = [];
-let teste = [];
+const urlDataTrello = `https://api.trello.com/1/boards/${DASHBOARD}/lists?cards=all&card_fields=id%2Cname%2CidMembers%2Clabels&filter=open&fields=id%2Cname&key=${
+  Keys.trello.key
+}&token=${Keys.trello.token}`;
+const urlUsersTrello = `https://api.trello.com/1/boards/${DASHBOARD}/members?key=${
+  Keys.trello.key
+}&token=${Keys.trello.token}`;
+const urlLabelsTrello = `https://api.trello.com/1/boards/${DASHBOARD}/labels?fields=id%2Cname&key=${
+  Keys.trello.key
+}&token=${Keys.trello.token}`;
+const urlLabelsAndCardsTrello = `https://api.trello.com/1/boards/${DASHBOARD}/cards/?fields=name,idList,idLabels&key=${
+  Keys.trello.key
+}&token=${Keys.trello.token}`;
+const dataFetch = `https://api.trello.com/1/boards/${DASHBOARD}/cards?key=${
+  Keys.trello.key
+}&token=${Keys.trello.token}`;
+const memberFetch = `https://api.trello.com/1/boards/${DASHBOARD}/members?key=${
+  Keys.trello.key
+}&token=${Keys.trello.token}`;
+const listFetch = `https://api.trello.com/1/boards/${DASHBOARD}/lists?key=${
+  Keys.trello.key
+}&token=${Keys.trello.token}`;
+const labelFetch = `https://api.trello.com/1/boards/${DASHBOARD}/labels?key=${
+  Keys.trello.key
+}&token=${Keys.trello.token}`;
 
 class App extends Component {
   constructor(props) {
@@ -54,7 +53,9 @@ class App extends Component {
       dataUsers: null,
       dataList: [],
       dataBoardlabels: [],
-      dataUsersLabels: null
+      dataUsersLabels: null,
+      lists: null,
+      labels: null
     };
   }
   // ======== REACT LIFECYCLE METHODS
@@ -251,7 +252,7 @@ class App extends Component {
         _.forEach(usersLabels, u => {
  
           _.forEach(self.labels, l => {
-            u[l.name.toLowerCase()] = u.labels[l.id];
+            u[l.name] = u.labels[l.id];
           });
           delete u.idMember;
           delete u.labels;
@@ -269,9 +270,13 @@ class App extends Component {
     if (prevState.dataUsers !== this.state.dataUsers) {
       this.getLists();
     }
+    if (prevState.dataUsersLabels !== this.state.dataUsersLabels) {
+      this.getLabels();
+    }
   }
   getLists() {
-    console.log(this.state.dataUsers);
+    let dataList = [];
+
     for (const object of this.state.dataUsers) {
       for (let i in object) {
         if (typeof object[i] === "number") {
@@ -280,11 +285,25 @@ class App extends Component {
       }
     }
     dataList = [...new Set(dataList)];
-    console.log(dataList);
-    for (const list of dataList) {
-      teste.push(`<Series valueField="${list}" name="${list}" />`);
+    this.setState({
+      lists: dataList
+    });
+  }
+
+  getLabels() {
+    let dataLabels = [];
+
+    for (const object of this.state.dataUsersLabels) {
+      for (let i in object) {
+        if (typeof object[i] === "number") {
+          dataLabels.push(i);
+        }
+      }
     }
-    console.log(teste);
+    dataLabels = [...new Set(dataLabels)];
+    this.setState({
+      labels: dataLabels
+    });
   }
 
   render() {
@@ -294,11 +313,14 @@ class App extends Component {
 
         {/* {this.state.dataCardsByLists && this.state.dataCardsByLabels ? */}
         <Main
+          lists={this.state.lists}
           dataUsers={this.state.dataUsers}
           dataLists={this.state.dataLists}
           dataSatisfaction={this.state.dataSatisfaction}
           dataCardsByLists={this.state.dataCardsByLists}
           dataCardsByLabels={this.state.dataCardsByLabels}
+          dataUsersLabels={this.state.dataUsersLabels}
+          labels={this.state.labels}
         />
         {/* : <p className="loading">Loading data</p> */}
         {/* } */}
