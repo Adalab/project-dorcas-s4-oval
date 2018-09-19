@@ -1,3 +1,10 @@
+.satisfation__media-equip {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #9ea0a2;
+  border-left: 1px solid #9ea0a2;
+  border-top: 0;
+  padding-bottom: 10px; }
+
 .satisfaction__media-equip--data {
   font-size: 20px; }
 
@@ -6,7 +13,8 @@
   margin-left: 20px; }
 
 .media-equip__title {
-  color: #3f3e44; }
+  color: #3f3e44;
+  font-weight: bold; }
 
 .media-equip__initial-data {
   color: #3f3e44; }
@@ -16,9 +24,3 @@
 
 .media-equip__job-data {
   color: #3f3e44; }
-
-.red {
-  color: #ab1616; }
-
-.green {
-  color: green; }
