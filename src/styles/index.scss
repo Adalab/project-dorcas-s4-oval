@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body {
-	margin     : 0;
-	padding    : 0;
-    font-family: 'Raleway', sans-serif;
-
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;
 }
 
 * {
@@ -13,4 +12,8 @@ body {
 
 .row {
 	margin: 0;
+}
+
+a {
+	text-decoration: none;
 }

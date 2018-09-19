@@ -1,15 +1,28 @@
 .section__planning {
-	width  : 100%;
-	padding: 40px 0 0;
+  height: 100%;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 55px 1fr;
+  margin-top: 10px;
 }
 
-.column__planning--chart {
-	padding: 0 5px;
+.row {
+  height: 100%;
 }
 
-.container__planning--chart {
-	display        : flex;
-	align-items    : center;
-	justify-content: center;
-	height         : 50%;
+.col-6 {
+  height: 100%;
+}
+
+.chart {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart__item {
+  width: 100%;
+  height: 90%;
+  overflow: hidden;
 }

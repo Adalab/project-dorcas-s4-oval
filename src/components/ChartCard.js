@@ -1,20 +1,20 @@
-import React from 'react';
-import '../styles/ChartCard.css';
-import donut1 from '../images/donut-1.jpeg';
+import React from "react";
+import "../styles/ChartCard.css";
+import Donut from "./Donut";
 
 class ChartCard extends React.Component {
-
-	render () {
-
-		return (
-
-			<div className="graphic__container">
-				<img src={donut1} alt="img" className="ChartCard__img"/>
-			</div>
-
-		);
-	}
-
+  render() {
+    return (
+      <div className="graphic__container">
+        <h4 className="chart__title">Number of Cards by Lists</h4>
+        {this.props.dataCardsByLists ? (
+          <Donut dataSource={this.props.dataCardsByLists} />
+        ) : (
+            <p>Loading Chart</p>
+          )}
+      </div>
+    );
+  }
 }
 
 export default ChartCard;

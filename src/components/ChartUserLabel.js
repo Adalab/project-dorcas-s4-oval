@@ -1,18 +1,17 @@
-import React from 'react';
-import '../styles/ChartUserLabel.css';
-import bars2 from '../images/bars-2.jpeg';
+import React from "react";
+import "../styles/ChartUserLabel.css";
+import BarChart from "./BarChart";
 
 class ChartUserLabel extends React.Component {
+  render() {
+    return (
+      <div className="graphic__container">
+        <h4 className="chart__title">Cards by Users/Lists</h4>
 
-	render () {
-
-		return (
-			<div className="graphic__container">
-					<img src={bars2} alt="img" className="ChartUserLabel__img"/>
-			</div>
-		);
-	}
-
+        <BarChart dataUsers={this.props.dataUsers} lists={this.props.lists} />
+      </div>
+    );
+  }
 }
 
 export default ChartUserLabel;

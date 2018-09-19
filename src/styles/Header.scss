@@ -1,23 +1,35 @@
 .header {
-	border-bottom: 1px solid black;
-	height: 8vh;
-	min-height: 60px;
-	padding: 7px 0 10px 20px;
-	display: flex;
-	align-items: center;
+  border-bottom: 1px solid #9ea0a2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__container-name {
+  display: flex;
+  align-items: center;
 }
 
 .titleApp {
-	margin-left: 20px;
-	padding-top: 10px;
-	font-family: 'AvenirLTStd-Black',  
+  margin-left: 20px;
+  padding-top: 10px;
+  font-family: "AvenirLTStd-Black";
 }
 
-.header__container {
-	width: 6%;
-	min-width: 80px;
+.header__container-nav {
+  height: 100%;
+  width: 30%;
 }
 
-.header__logo {
-	width: 100%;
+.header__container-nav--listMenu {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.link:hover {
+  color: #ff0000;
+  text-decoration: none;
 }
