@@ -37,7 +37,7 @@ class Planning extends React.Component {
               <div className="col-6">
                 <div className="chart">
                   <div className="chart__item">
-                    <ChartUserLabel />
+                    <ChartUserLabel dataUsers={this.props.dataUsers} />
                   </div>
                 </div>
                 <div className="chart">
