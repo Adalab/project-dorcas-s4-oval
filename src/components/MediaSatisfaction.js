@@ -1,9 +1,6 @@
 import React from "react";
 import "../styles/MediaSatisfaction.css";
 
-let initialMedia = [];
-let finalMedia = [];
-let jobMedia = [];
 
 class MediaSatisfaction extends React.Component {
 
